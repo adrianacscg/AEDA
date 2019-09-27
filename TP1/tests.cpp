@@ -52,14 +52,14 @@ TEST(test_1, c_EntrarParque){
     // Testa se nao deixa entrar no parque um cliente que nao existe
     ASSERT_EQ(false, p1.entrar("Paula"));
     // Testa se nao dexia entrar em cliente que ja la esta
-    //ASSERT_EQ(false, p1.entrar("Maria"));
-    //p1.entrar("Joao");
-    //p1.entrar("Antonio");
+    ASSERT_EQ(false, p1.entrar("Maria"));
+    p1.entrar("Joao");
+    p1.entrar("Antonio");
     // Testa se nao deixa entrar quando a lotacao esta completa
     ASSERT_EQ(false, p1.entrar("Rui"));
 }
 
-/*
+
 TEST(test_1, d_RetirarCliente){
     ParqueEstacionamento p1(3, 5);
     p1.adicionaCliente("Joao");
@@ -73,8 +73,8 @@ TEST(test_1, d_RetirarCliente){
     // Testa se nao deixa remover cliente que nao existe
     ASSERT_EQ(false, p1.retiraCliente("Ana"));
 }
-*/
-/*
+
+
 TEST(test_1, e_SairParque){
     ParqueEstacionamento p1(3, 5);
     p1.adicionaCliente("Joao");
@@ -90,8 +90,8 @@ TEST(test_1, e_SairParque){
     // Testa se nao deixa sair um cliente que nao existe.
     ASSERT_EQ(false, p1.sair("Antonio"));
 }
-*/
-/*
+
+
 TEST(test_1, f_LugaresLotacaoParque){
     ParqueEstacionamento p1(3, 5);
     p1.adicionaCliente("Joao");
@@ -106,4 +106,3 @@ TEST(test_1, f_LugaresLotacaoParque){
     // Testa se o o numero de clientes registados no parque esta correcto
     ASSERT_EQ(3, p1.getNumClientesAtuais());
 }
-*/

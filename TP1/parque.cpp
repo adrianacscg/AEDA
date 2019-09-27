@@ -1,6 +1,6 @@
 #include "parque.h"
-#include <vector>
-#include <algorithm>
+//#include <vector>
+//#include <algorithm>
 
 using namespace std;
 
@@ -108,5 +108,15 @@ unsigned int ParqueEstacionamento::getNumLugaresOcupados() const {
 unsigned int ParqueEstacionamento::getNumClientesAtuais() const {
     int num_clientes = clientes.size();
     return num_clientes;
+}
+
+const ParqueEstacionamento & ParqueEstacionamento::operator+= (const ParqueEstacionamento & p2){
+    vagas = vagas + p2.vagas;
+    int *ptr_p1 = (int*) &numMaximoClientes;
+    int  *ptr_p2 = (int*) &p2.numMaximoClientes;
+    *ptr_p1 += *ptr_p2;
+    
+
+
 }
 
