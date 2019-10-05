@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/2 TP/Tests/veiculo.cpp
+veiculo.h
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/2 TP/Tests/veiculo.h
+iostream
+-
+
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/2 TP/Tests/veiculo.h
+string
+-
+
