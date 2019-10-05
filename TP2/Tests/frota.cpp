@@ -28,6 +28,10 @@ int Frota::menorAno() const {
         return menor_ano;
     }
 }
-ostream Frota::operator<<(ostream &o, const Frota &f) {}
-
+/*
+ostream & operator<< (ostream &o, const Frota &f) {
+    for(auto veiculo : f.veiculos){
+        o << f.veiculos ->info();
+    }
 }
+*/

@@ -8,7 +8,7 @@ using namespace std;
 class Frota {
 	vector<Veiculo *> veiculos;
 public:
-	friend ostream & operator<<(ostream & o, const Frota & f);
+	//friend ostream & operator<<(ostream & o, const Frota & f);
 	void adicionaVeiculo(Veiculo *v1);
 	int numVeiculos() const;
 	int menorAno() const;

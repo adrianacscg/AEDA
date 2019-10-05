@@ -74,11 +74,12 @@ int Bicicleta::info() const {
 
 bool Veiculo::operator<(const Veiculo &v) const {
     if(this->ano < v.ano ){
-        this < v;
+        return true;
     }
     else if (this->ano == v.ano){
         if (this->mes < v.mes)
-            this < v;
+            return true;
     }
-    return 0;
+    return false;
 }
+

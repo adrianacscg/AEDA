@@ -18,7 +18,7 @@ TEST(test_1, a_CriarVeiculos) {
 }
 
 TEST(test_1, b_CriarFrota){
-   /* Frota f;
+   Frota f;
     ASSERT_EQ(0, f.numVeiculos());
     ASSERT_EQ(0, f.menorAno());
     Veiculo *v1 =new Automovel("Fiat",5,1997,"gasolina",1200);
@@ -30,20 +30,20 @@ TEST(test_1, b_CriarFrota){
     f.adicionaVeiculo(v3);
     f.adicionaVeiculo(v4);
     ASSERT_EQ(4, f.numVeiculos());
-    ASSERT_EQ(1997, f.menorAno());*/
+    ASSERT_EQ(1997, f.menorAno());
 }
 
 TEST(test_1, c_InfoVeiculo){
-   /* Automovel a1("Fiat",5,1997,"gasolina",1200);
+    Automovel a1("Fiat",5,1997,"gasolina",1200);
     Camiao c1("Ford",3,1999,"gasolina",1400,1000);
     Bicicleta b1("XX",4,2002,"TodoTerreno");
     ASSERT_EQ(5, a1.info());
     ASSERT_EQ(6,c1.info());
-    ASSERT_EQ(4,b1.info());*/
+    ASSERT_EQ(4,b1.info());
 }
-
+/*
 TEST(test_1, d_InfoFrota){
-    /*Veiculo *v1 =new Automovel("Fiat",5,2016,"gasolina",1200);
+    Veiculo *v1 =new Automovel("Fiat",5,2016,"gasolina",1200);
     Veiculo *v2= new Camiao("Ford",3,2017,"gasolina",1400,1000);
     Veiculo *v3=new Bicicleta("XX",4,2018,"TodoTerreno");
     Frota f;
@@ -52,16 +52,16 @@ TEST(test_1, d_InfoFrota){
     f.adicionaVeiculo(v3);
     ASSERT_TRUE(true);
     cout << "Este teste nunca falha! VERIFICAR informação escrita no monitor" << endl;
-    cout << f;*/
+    cout << f;
 }
-
+*/
 TEST(test_1, e_OperadorMenor) {
-   /* Automovel a1("Fiat",3,2017,"gasolina",1200);
+    Automovel a1("Fiat",3,2017,"gasolina",1200);
     Camiao c1("Ford",5,2017,"gasolina",1400,1000);
     Bicicleta b1("XX",4,2018,"TodoTerreno");
     ASSERT_EQ(true, a1<c1);
     ASSERT_EQ(false,b1<c1);
-    ASSERT_EQ(true,a1<b1);*/
+    ASSERT_EQ(true,a1<b1);
 }
 
 TEST(test_1, f_OperadorFuncao) {
