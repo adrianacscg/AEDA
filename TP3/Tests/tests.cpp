@@ -74,7 +74,7 @@ TEST(test, c_InserirAresta){
 }
 
 TEST(test, d_ValorAresta){
-   /* Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -111,12 +111,12 @@ TEST(test, d_ValorAresta){
         ostr1 << e;
         string str1 = "No inexistente: F";
         ASSERT_EQ(str1, ostr1.str());
-    }*/
+    }
 }
 
 
 TEST(test, e_EliminarAresta){
- /*   Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -156,11 +156,11 @@ TEST(test, e_EliminarAresta){
         ASSERT_EQ(str1, ostr1.str());
     }
 
-    ASSERT_EQ(6, f.numArestas());*/
+    ASSERT_EQ(6, f.numArestas());
 }
 
 TEST(test, f_ImprimirGrafo){
-   /* Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -178,11 +178,11 @@ TEST(test, f_ImprimirGrafo){
     f.imprimir(ostr);
     string str = "( A[ B 5] [ C 8] ) ( B[ D 9] ) ( C[ D 3] [ E 4] ) ( D[ E 2] [ B 11] ) ( E) ";
     cout << str.c_str()<<endl;
-    ASSERT_EQ(str, ostr.str());*/
+    ASSERT_EQ(str, ostr.str());
 }
 
 TEST(test, g_OperadorSaida){
-   /* Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -199,5 +199,5 @@ TEST(test, g_OperadorSaida){
     ostringstream ostr;
     ostr << f;
     string str = "( A[ B 5] [ C 8] ) ( B[ D 9] ) ( C[ D 3] [ E 4] ) ( D[ E 2] [ B 11] ) ( E) ";
-    ASSERT_EQ(str, ostr.str());*/
+    ASSERT_EQ(str, ostr.str());
 }

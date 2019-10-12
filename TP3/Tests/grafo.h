@@ -47,7 +47,10 @@ class Grafo {
 };
 
 template <class N, class A> 
-std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g);
+std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g){
+    g.imprimir(out);
+    return out;
+}
 
 // excecao NoRepetido
 template <class N>
@@ -138,9 +141,27 @@ public:
     }
 };
 template <class N>
-std::ostream & operator<<(std::ostream &out, const ArestaRepetida<N> &ai)
-{ out << "Aresta Repetida: " << ai.info1 << " , " << ai.info2;
+std::ostream & operator<<(std::ostream &out, const ArestaRepetida<N> &ar)
+{ out << "Aresta Repetida: " << ar.info1 << " , " << ar.info2;
     return out;}
+
+
+//exceção ArestaInexistente
+template <class N>
+class ArestaInexistente{
+public:
+    N info1;
+    N info2;
+    ArestaInexistente(N inf1, N inf2) {
+        info1 = inf1;
+        info2 = inf2;
+    }
+};
+template <class N>
+std::ostream & operator<<(std::ostream &out, const ArestaInexistente<N> &ai)
+{ out << "Aresta Inexistente: " << ai.info1 << " , " << ai.info2;
+    return out;}
+
 
 template <typename N, typename A>
 Grafo<N,A> & Grafo<N,A>::inserirAresta(const N &inicio, const N &fim, const A &val) {
@@ -177,8 +198,10 @@ Grafo<N,A> & Grafo<N,A>::inserirAresta(const N &inicio, const N &fim, const A &v
     }
     for (int k = 0; k < nos[index_inicio]->arestas.size(); ++k) {
         if (nos[index_inicio]->arestas[k].destino->info == fim) {
-            throw ArestaRepetida<N>(inicio, fim);
+            throw (ArestaRepetida<N>(inicio, fim));
         }
+        else
+            continue;
     }
 
 
@@ -188,3 +211,70 @@ Grafo<N,A> & Grafo<N,A>::inserirAresta(const N &inicio, const N &fim, const A &v
 
 }
 
+template <typename N, typename A>
+A & Grafo<N,A>::valorAresta(const N &inicio, const N &fim) {
+    int index_inicio = 0;
+
+    for (int j = 0; j < nos.size(); ++j) {
+        if (nos[j]->info == inicio)
+            index_inicio = j;
+        else
+            continue;
+    }
+    for (int i = 0; i < nos[index_inicio]->arestas.size() ; ++i) {
+        if(nos[index_inicio]->arestas[i].destino->info == fim){
+            return nos[index_inicio]->arestas[i].valor;
+        }
+        else
+            continue;
+    }
+
+    throw (ArestaInexistente<N>(inicio, fim));
+
+}
+
+template <typename N, typename A>
+Grafo<N,A> & Grafo<N,A>::eliminarAresta(const N &inicio, const N &fim) {
+    int index_inicio = -2;
+    int index_final = -2;
+
+    for (int j = 0; j < nos.size(); ++j) {
+        if (nos[j]->info == inicio)
+            index_inicio = j;
+        else
+            continue;
+    }
+
+    for (int k = 0; k < nos.size(); ++k) {
+        if (nos[k]->info == fim)
+            index_final = k;
+        else
+            continue;
+    }
+
+    if(index_inicio == -2)
+        throw (NoInexistente<N>(inicio));
+    if(index_final == -2)
+        throw (NoInexistente<N>(fim));
+
+    for (int i = 0; i < nos[index_inicio]->arestas.size() ; ++i) {
+        if(nos[index_inicio]->arestas[i].destino->info == fim){
+            nos[index_inicio]->arestas.erase(nos[index_inicio]->arestas.begin()+i);
+            return *this;
+        }
+        else
+            continue;
+    }
+    throw (ArestaInexistente<N>(inicio, fim));
+}
+
+template <typename N, typename A>
+void Grafo<N,A>::imprimir(std::ostream &os) const {
+    for(int i=0 ; i<nos.size() ; i++){
+        os << "( " << nos[i]->info;
+        for(int j=0 ; j<nos[i]->arestas.size() ; j++){
+            os << "[ " << nos[i]->arestas[j].destino->info << " " << nos[i]->arestas[j].valor << "] ";
+        }
+        os << ") ";
+    }
+}
