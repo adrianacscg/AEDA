@@ -28,10 +28,16 @@ int Frota::menorAno() const {
         return menor_ano;
     }
 }
-/*
+
 ostream & operator<< (ostream &o, const Frota &f) {
     for(auto veiculo : f.veiculos){
-        o << f.veiculos ->info();
+        o << veiculo->info();
     }
+    return o;
 }
-*/
+vector<Veiculo*> Frota::operator()(int anoM) const {
+    vector<Veiculo*> v;
+    for (auto vehicle : veiculos) if (vehicle->getAno() == anoM) v.push_back(vehicle);
+
+    return v;
+}
