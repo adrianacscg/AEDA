@@ -42,8 +42,14 @@ double Bank::getWithdraw(string cod1) const{
 
 // a alterar
 vector<Account *> Bank::removeBankOfficer(string name){
-	vector<Account *> res;
-	return res;
+    for (int i = 0; i < bankOfficers.size() ; ++i) {
+        if(bankOfficers.at(i).name == name){
+            return bankOfficers.at(i).myAccounts;
+        }
+        else
+            continue;
+    }
+    return vector<Account *>v;
 }
 
 

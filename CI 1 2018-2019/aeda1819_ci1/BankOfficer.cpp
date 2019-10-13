@@ -30,7 +30,10 @@ unsigned int BankOfficer::getID() const{
 // ----------------------------------------------------------------------------------------------
 
 // a alterar
-BankOfficer::BankOfficer(string name) {
+BankOfficer::BankOfficer(string nm) {
+    name = nm;
+    id = bankOfficers.size() + 1;
+    vector<Account *>myAccounts;
 }
 
 
