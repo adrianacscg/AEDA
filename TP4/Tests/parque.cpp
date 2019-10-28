@@ -23,7 +23,7 @@ unsigned int ParqueEstacionamento::getNumLugares() const { return lotacao; }
 unsigned int ParqueEstacionamento::getNumLugaresOcupados() const { return lotacao-vagas; }
 
 
-// a imnplementar
+
 int ParqueEstacionamento::posicaoCliente(const string &nome) const
 {   vector<string> nomes;
     for(auto cliente : clientes){
@@ -32,7 +32,7 @@ int ParqueEstacionamento::posicaoCliente(const string &nome) const
     return sequentialSearch(nomes, nome);
 }
 
-//a implementar
+
 int ParqueEstacionamento::getFrequencia(const string &nome) const
 {
     for (auto cliente : clientes) {
@@ -53,7 +53,6 @@ string ClienteNaoExistente::getNome() {
 }
 
 
-// a alterar/atualizar ?
 bool ParqueEstacionamento::adicionaCliente(const string & nome)
 {
  	if ( numClientes == numMaximoClientes ) return false;
@@ -67,7 +66,6 @@ bool ParqueEstacionamento::adicionaCliente(const string & nome)
 	return true;
 }
 
-// a alterar/atualizar ?
 bool ParqueEstacionamento::retiraCliente(const string & nome)
 {
 	for (vector<InfoCartao>::iterator it = clientes.begin(); it != clientes.end(); it++)
@@ -82,7 +80,6 @@ bool ParqueEstacionamento::retiraCliente(const string & nome)
 	return false;
 }
 
-// a alterar/atualizar ?
 bool ParqueEstacionamento::entrar(const string & nome)
 {
 	if ( vagas == 0 ) return false;
@@ -91,11 +88,11 @@ bool ParqueEstacionamento::entrar(const string & nome)
 	if ( clientes[pos].presente == true ) return false;
 	clientes[pos].presente = true;
 	vagas--;
-	clientes[pos].frequencia = clientes[pos].frequencia + 1;
+	clientes[pos].frequencia = clientes[pos].frequencia + 1;        //atualizar valor de frequencia
 	return true;
 }
 
-// a alterar/atualizar ?
+
 bool ParqueEstacionamento::sair(const string & nome)
 {
 	int pos = posicaoCliente(nome);
@@ -106,15 +103,13 @@ bool ParqueEstacionamento::sair(const string & nome)
 	return true;
 }
 
-		
-// a implementar
+
 void ParqueEstacionamento::ordenaClientesPorFrequencia()
 {
     insertionSort(clientes);
 }
 
 
-// a implementar
 void ParqueEstacionamento::ordenaClientesPorNome()
 {
     ordenaClientesPorFrequencia();
@@ -131,8 +126,6 @@ void ParqueEstacionamento::ordenaClientesPorNome()
 }
 
 
-
-// a implementar
 vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2)
 {
     vector<string> nomes;
@@ -147,25 +140,32 @@ vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2)
 }
 
 
-// a implementar
 ostream & operator<<(ostream & os, const ParqueEstacionamento & pe)
 {
+    for(int i = 0; i < pe.clientes.size(); i++) {
+        os << pe.clientes.at(i).nome << endl;
+        os << pe.clientes.at(i).presente << endl;
+        os << pe.clientes.at(i).frequencia << endl;
+    }
     return os;
 }
 
 
-// a implmentar
 InfoCartao ParqueEstacionamento::getClienteAtPos(vector<InfoCartao>::size_type p) const
 {
     InfoCartao info;
-    return info;
+    if(0 <= p && p <= clientes.size()-1)
+        return clientes.at(p);
+    else
+        throw PosicaoNaoExistente(p);
 }
-/*
-bool InfoCartao::operator==(const InfoCartao &ic) {
-    return this->nome == ic.nome;
 
+PosicaoNaoExistente::PosicaoNaoExistente(int p): posicao(p) {}
+
+int PosicaoNaoExistente::getValor() {
+    return posicao;
 }
-*/
+
 bool InfoCartao::operator<(const InfoCartao &ic) {
     if(this->frequencia > ic.frequencia)    //a frequencia é ordenada de forma decrescente
         return true;

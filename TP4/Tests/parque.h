@@ -14,7 +14,6 @@ public:
 	int frequencia;
 
     bool operator<(const InfoCartao &ic);
-    bool operator==(const InfoCartao &ic);
 };
 
 class ParqueEstacionamento {
@@ -48,6 +47,13 @@ public:
     ClienteNaoExistente(string nome);
     string getNome();
 
+};
+
+class PosicaoNaoExistente{
+    int posicao;
+public:
+    PosicaoNaoExistente(int p);
+    int getValor();
 };
 
 #endif /*PARQUE_H_*/

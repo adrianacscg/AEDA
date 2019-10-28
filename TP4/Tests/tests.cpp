@@ -137,7 +137,7 @@ TEST(test, e_OrdenaNome){
     InfoCartao ic2=p1.getClientes()[0];
     EXPECT_EQ("Joao Santos", ic2.nome);
 }
-/*
+
 TEST(test, f_InfoClientes){
     ParqueEstacionamento p1(10,20);
     p1.adicionaCliente("Joao Santos");
@@ -164,4 +164,3 @@ TEST(test, f_InfoClientes){
         EXPECT_EQ(6, e.getValor());
     }
 }
-*/
