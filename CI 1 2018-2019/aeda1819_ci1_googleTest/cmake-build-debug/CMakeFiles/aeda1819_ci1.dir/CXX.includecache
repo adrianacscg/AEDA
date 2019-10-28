@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/Account.h
+string
+-
+iostream
+-
+
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/Bank.cpp
+Bank.h
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/Bank.h
+algorithm
+-
+string
+-
+vector
+-
+
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/Bank.h
+Account.h
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/Account.h
+vector
+-
+BankOfficer.h
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/BankOfficer.h
+
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/BankOfficer.h
+Account.h
+C:/Users/Adriana/Desktop/FEUP/My Folders/2ano/1semestre/AEDA/Testes e Exames/CI 1 2018-2019/aeda1819_ci1_googleTest/Tests/Account.h
+string
+-
+vector
+-
+
