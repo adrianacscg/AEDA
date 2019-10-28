@@ -28,5 +28,12 @@ public:
 	void sortAccounts();
 };
 
+class NoBankOfficerException{
+    string name;
+public:
+    NoBankOfficerException(string nome);
+    string getName();
+};
+
 
 #endif /* SRC_BANK_H_ */

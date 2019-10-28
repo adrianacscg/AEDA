@@ -135,7 +135,7 @@ TEST(test_1, f){
     EXPECT_EQ(false, b3>b1);
 }
 
-/*TEST(test_1, g){
+TEST(test_1, g){
     Bank ba;
     BankOfficer b1;
     b1. setName("joao");
@@ -177,8 +177,8 @@ TEST(test_1, f){
     new CheckingAccount("rui", "bi678","PT732", 200.0, 500.0);
     bx = ba.addAccountToBankOfficer(ac1,"fernando");
     EXPECT_EQ(2,bx.getAccounts().size());
-}*/
-/*
+}
+
 TEST(test_1, h){
     Bank ba;
     ba.addAccount(new CheckingAccount("rui", "bi123","PT714", 200.0, 500.0));
@@ -200,4 +200,4 @@ TEST(test_1, h){
     EXPECT_EQ("PT713",ba.getAccounts()[3]->getCodIBAN());
     EXPECT_EQ("PT741",ba.getAccounts()[4]->getCodIBAN());
     EXPECT_EQ("PT751",ba.getAccounts()[6]->getCodIBAN());
-}*/
+}

@@ -42,6 +42,16 @@ double Bank::getWithdraw(string cod1) const{
 
 // a alterar
 vector<Account *> Bank::removeBankOfficer(string name){
+    vector<Account *> res;
+    for (auto it = bankOfficers.begin(); it < bankOfficers.end(); it++){
+        if (it->getName() == name) {
+            res = it->getAccounts();
+            bankOfficers.erase(it, it+1);
+            break;
+        }
+    }
+    return res;
+    /*
     for(auto i = 0; i < bankOfficers.size(); i++){
         if(bankOfficers.at(i).getName()==name){
             bankOfficers.erase(bankOfficers.begin(), bankOfficers.begin()+i);
@@ -50,18 +60,36 @@ vector<Account *> Bank::removeBankOfficer(string name){
     }
     vector<Account*> empty;
     return empty;
-
+    */
 }
 
 
 // a alterar
 const BankOfficer & Bank::addAccountToBankOfficer(Account *ac, string name) {
     BankOfficer *bo= new BankOfficer();
-    return *bo;
+    for (auto it = bankOfficers.begin(); it!= bankOfficers.end(); it++){
+        if (it->getName() == name) {
+            it->addAccount(ac);
+            *bo = *it;
+            return *bo;
+        }
+    }
+    throw NoBankOfficerException(name);
+}
+
+NoBankOfficerException::NoBankOfficerException(string nome):name(nome){}
+
+string NoBankOfficerException::getName() {
+    return name;
 }
 
 
 // a alterar
 void Bank::sortAccounts() {
+    sort(accounts.begin(),accounts.end(), [](const Account* a, const Account*b ){
+        if (a->getBalance() < b->getBalance() ) return true;
+        else if(a->getBalance() > b->getBalance()) return false;
+        else return (a->getCodIBAN() < b->getCodIBAN());
+    });
 }
 
