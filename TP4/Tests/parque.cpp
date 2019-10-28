@@ -117,13 +117,32 @@ void ParqueEstacionamento::ordenaClientesPorFrequencia()
 // a implementar
 void ParqueEstacionamento::ordenaClientesPorNome()
 {
+    ordenaClientesPorFrequencia();
+    //Bubble Sort
+
+    for(unsigned int j = clientes.size()-1; j > 0; j--){
+
+        for(unsigned int i = 1; i<=j;i++){
+            if(clientes[i].nome < clientes[i-1].nome){
+                swap(clientes[i], clientes[i-1]);
+            }
+        }
+    }
 }
+
 
 
 // a implementar
 vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2)
 {
     vector<string> nomes;
+    ordenaClientesPorFrequencia();
+    for(auto cliente : clientes){
+        if(cliente.frequencia >= n1 && cliente.frequencia<=n2)
+            nomes.push_back(cliente.nome);
+        else
+            continue;
+    }
     return nomes;
 }
 
@@ -141,12 +160,12 @@ InfoCartao ParqueEstacionamento::getClienteAtPos(vector<InfoCartao>::size_type p
     InfoCartao info;
     return info;
 }
-
+/*
 bool InfoCartao::operator==(const InfoCartao &ic) {
     return this->nome == ic.nome;
 
 }
-
+*/
 bool InfoCartao::operator<(const InfoCartao &ic) {
     if(this->frequencia > ic.frequencia)    //a frequencia é ordenada de forma decrescente
         return true;
